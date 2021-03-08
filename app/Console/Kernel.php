@@ -2,7 +2,6 @@
 
 namespace App\Console;
 
-use App\Console\Commands\UserWelcomeMail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,8 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\UserWelcomeMail::class,
+        //
     ];
+
     /**
      * Define the application's command schedule.
      *
@@ -24,8 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('automail:check')
-                 ->everyMinute();
+        // $schedule->command('inspire')->hourly();
     }
 
     /**
@@ -36,7 +35,7 @@ class Kernel extends ConsoleKernel
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');
-     
+
         require base_path('routes/console.php');
     }
 }
